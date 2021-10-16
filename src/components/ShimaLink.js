@@ -18,7 +18,7 @@ export default function ShimaLink() {
                     <div className="grid grid-rows-4 grid-cols-1 gap-4 md:grid-rows-2 md:grid-cols-2">
                         {content.links.socialMedia.map((socialMedia, index) => {
                             return (
-                                <a target="_blank" rel="noopener noreferrer" href={socialMedia.link}>
+                                <a key={index} target="_blank" rel="noopener noreferrer" href={socialMedia.link}>
                                     <div className="rounded-2xl bg-purple-300 backdrop-filter backdrop-blur-lg bg-opacity-20 hover:bg-opacity-100 p-4 flex flex-col relative undefined">
                                         <div className="text-white absolute right-3 bottom-2">
                                             <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox={socialMedia.viewBox} stroke="currentColor">
@@ -32,6 +32,19 @@ export default function ShimaLink() {
                                 </a>
                             );
                         })}
+                        <div className="group rounded-2xl bg-purple-300 backdrop-filter backdrop-blur-lg bg-opacity-20 hover:bg-opacity-100 p-4 flex flex-col relative undefined">
+                            <div className="text-white absolute right-3 bottom-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 transform group-hover:-translate-x-48 md:group-hover:-translate-x-72 transition group-hover:duration-1000 group-hover:opacity-0" fill="none" viewBox={content.mail.viewBox} stroke="currentColor">
+                                    <g>
+                                        <path fill="currentColor" strokeWidth={content.mail.strokeWidth} d={content.mail.icon} />
+                                    </g>
+                                </svg>
+                            </div>
+                            <div className="grid grid-cols-2">
+                                <div className="text-white text-lg font-medium group-hover:opacity-0 transition group-hover:duration-1000">{content.mail.title}</div>
+                                <div className="text-white md:text-base opacity-0 transform -translate-x-32 md:-translate-x-56 group-hover:opacity-100 transition group-hover:duration-1000">{content.mail.link}</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </main>
